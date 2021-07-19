@@ -1,11 +1,38 @@
 # Reference
-Nextcloud deployed automatically via Terraform+Ansible in AWS cloud.
+Nextcloud with OnlyOffice deployed automatically via Terraform+Ansible in AWS cloud - with object storage.
 
 # Requirements
 - An AWS account
 - Follow Step-by-Step (compatible with Windows and Ubuntu)
+- *NEW* Optionally setup a duckdns.org domain, this is suggested for all new installations!
 
 # Step-by-Step 
+Mac Users install (home)brew, then terraform, git, awscli.
+```
+#########
+## Mac ##
+#########
+# Launch terminal
+
+# Install brew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Ensure brew up-to-date
+brew update
+
+# Install terraform and git
+brew install terraform git
+
+# Install awscli
+curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
+sudo installer -pkg AWSCLIV2.pkg -target /
+
+# Verify the three are installed
+which terraform git aws
+
+# Skip down to 'git clone' below
+```
+
 Windows Users install WSL (Windows Subsystem Linux)
 ```
 #############################
@@ -193,3 +220,6 @@ git pull
 # Re-run terraform apply with your pvars file, see the update instructions in terraform's output
 terraform apply -var-file="pvars.tfvars"
 ```
+
+- Using Firefox and OnlyOffice not loading when attempting to edit/view documents?
+  - Visit https://your-cloudoffice-server-ip:your-oo-port (default 8443) and accept the certificate.

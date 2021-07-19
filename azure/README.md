@@ -1,11 +1,34 @@
 # Reference
-Nextcloud deployed automatically via Terraform+Ansible in Azure (Microsoft) cloud.
+Nextcloud + OnlyOffice deployed automatically via Terraform+Ansible in Azure (Microsoft) cloud with object storage.
 
 # Requirements
 - An Azure cloud account.
 - Follow Step-by-Step (compatible with Windows and Ubuntu)
+- *NEW* Optionally setup a duckdns.org domain, this is suggested for all new installations!
 
 # Step-by-Step
+Mac Users install (home)brew, then terraform, git, az cli.
+```
+#########
+## Mac ##
+#########
+# Launch terminal
+
+# Install brew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Ensure brew up-to-date
+brew update
+
+# Install terraform and git
+brew install terraform git azure-cli
+
+# Verify the three are installed
+which terraform git az
+
+# Skip down to 'git clone' below
+```
+
 Windows users install WSL (Windows Subsystem Linux)
 ```
 #############################
@@ -175,3 +198,6 @@ git pull
 terraform init
 terraform apply -var-file="pvars.tfvars"
 ```
+
+- Using Firefox and OnlyOffice not loading when attempting to edit/view documents?
+  - Visit https://your-cloudoffice-server-ip:your-oo-port (default 8443) and accept the certificate.

@@ -1,7 +1,7 @@
 # Overview
-Nextcloud built in the cloud automatically using Terraform with Ansible.
+Nextcloud built in the cloud automatically using Terraform with Ansible. Now with optional duckdns.org/letsencrypt support!
 
-Available for AWS, Azure, Digital Ocean, GCP (Google), OCI (Oracle), Scaleway (scw) - plus standalone deployment options.
+Available for several major cloud providers, including: AWS (EC2 or Lightsail), Azure, Digital Ocean, GCP (Google), OCI (Oracle), Scaleway (scw) + standalone Raspberry Pi/Ubuntu Server deployment options.
 
 ![Diagram](cloudofficediagram.png)
 
@@ -22,3 +22,6 @@ Standalone:
 
 # Discussion
 [Discord Room](https://discord.gg/TT8vrcnw6x)
+
+# Changelog
+- July 2021 - Please note, the duckdns domain feature was added (after videos were created). [duckdns.org](https://duckdns.org) is a free service to provide a domain name (that we sign with a [letsencrypt.org](https://letsencrypt.org) certificate with automatically). Though not required, duckdns is suggested for all new deployments. The certificate integrates better with Nextcloud and OnlyOffice apps and web browsers.

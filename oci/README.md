@@ -1,11 +1,34 @@
 # Reference
-Nextcloud deployed automatically via Terraform+Ansible in Oracle (OCI) cloud.
+Nextcloud + OnlyOffice deployed automatically via Terraform+Ansible in Oracle (OCI) cloud with object storage.
 
 # Requirements
 - An Oracle cloud account.
 - Follow Step-by-Step (compatible with Windows and Ubuntu)
+- *NEW* Optionally setup a duckdns.org domain, this is suggested for all new installations!
 
 # Step-by-Step
+Mac Users install (home)brew, then terraform, git, cloud cli.
+```
+#########
+## Mac ##
+#########
+# Launch terminal
+
+# Install brew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Ensure brew up-to-date
+brew update
+
+# Install terraform git and cli
+brew install terraform git oci-cli
+
+# Verify the three are installed
+which terraform git gcloud oci-cli
+
+# Skip down to 'git clone' below
+```
+
 Windows users install WSL (Windows Subsystem Linux)
 ```
 #############################
@@ -215,3 +238,6 @@ git pull
 terraform init
 terraform apply -var-file="pvars.tfvars"
 ```
+
+- Using Firefox and OnlyOffice not loading when attempting to edit/view documents?
+  - Visit https://your-cloudoffice-server-ip:your-oo-port (default 8443) and accept the certificate.
