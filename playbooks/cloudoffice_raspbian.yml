@@ -19,6 +19,10 @@
       set_fact:
         letsencrypt_email: "{% if letsencrypt_email is not defined %}{% else %}{{ letsencrypt_email }}{% endif %}"
 
+    - name: if not defined, set docker_duckdnsupdater to blank value
+      set_fact:
+        docker_duckdnsupdater: "{% if docker_duckdnsupdater is not defined %}{% else %}{{ docker_duckdnsupdater }}{% endif %}"
+
     - name: add docker apt key
       apt_key:
         url: https://download.docker.com/linux/raspbian/gpg
@@ -124,7 +128,8 @@
         - httpd-ssl.conf
         - httpd.conf
         - nginx/nginx.conf
-        - nginx/proxy-confs/nextcloud.conf
+        - nginx/proxy-confs/cloudoffice.conf
+      register: proxy_conf_files
 
     - name: Determine admin_password file exists
       stat:
@@ -241,6 +246,7 @@
         purge_networks: yes
         restart_policy: "always"
         container_default_behavior: "compatibility"
+        restart: "{% if proxy_conf_files.changed %}yes{% else %}no{% endif %}"
       when: duckdns_domain == ""
 
     - name: duckdnsupdater container
@@ -266,7 +272,7 @@
     - name: duckdns web proxy container
       docker_container:
         name: cloudoffice_webproxy
-        hostname: "{{ duckdns_domain }}"
+        hostname: cloudofficewebproxy
         image: ghcr.io/linuxserver/swag
         networks:
           - name: cloudoffice
@@ -286,6 +292,7 @@
         purge_networks: yes
         restart_policy: "always"
         container_default_behavior: "compatibility"
+        restart: "{% if proxy_conf_files.changed %}yes{% else %}no{% endif %}"
       when: duckdns_domain != ""
 
     - name: wait for db container
@@ -347,7 +354,7 @@
 
     - name: wait for nextcloud 200OK
       uri:
-        url: "{% if duckdns_domain != '' %}https://{{ duckdns_domain }}:{{ web_port }}/login{% else %}https://127.0.0.1:{{ web_port }}/login{% endif %}"
+        url: "{% if duckdns_domain != '' %}https://{{ duckdns_domain }}:{{ web_port }}/nc/login{% else %}https://127.0.0.1:{{ web_port }}/login{% endif %}"
         status_code: 200
         validate_certs: no
       register: nc_wait_result
