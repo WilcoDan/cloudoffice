@@ -93,9 +93,9 @@ project_directory=/opt
 # New as of July 2021 - visit duckdns.org and get a domain + token then set your variables below
 # This provides a signed, valid HTTPS certificate (instead of self-signed)
 enable_duckdns=0
-duckdns_domain=changeme.duckdns.org
-duckdns_token=changeme-change-me-change-me
-letsencrypt_email=changeme@changeme.changeme
+duckdns_domain=
+duckdns_token=
+letsencrypt_email=wilco@danester.co.za
 
 # Want to set your own admin, database, and onlyoffice passwords instead of something randomly generated?
 sudo mkdir -p /opt/nextcloud_application
@@ -129,7 +129,7 @@ cd ~/cloudoffice/playbooks
 # Set customized variables (use the variables you saved previously, raspberry pis dont have oo_port or docker_onlyoffice)
 web_port=443
 oo_port=8443
-instance_public_ip=CHANGEME
+instance_public_ip=192.96.177.45
 docker_network=172.18.1.0
 docker_gw=172.18.1.1
 docker_nextcloud=172.18.1.2
@@ -138,10 +138,10 @@ docker_webproxy=172.18.1.4
 docker_onlyoffice=172.18.1.6
 docker_duckdnsupdater=172.18.1.7
 project_directory=/opt
-enable_duckdns=1
-duckdns_domain=changeme.duckdns.org
-duckdns_token=changeme-change-me-change-me
-letsencrypt_email=changeme@changeme.changeme
+enable_duckdns=0
+duckdns_domain=
+duckdns_token=
+letsencrypt_email=wilco@danester.co.za
 
 # Remove old containers (service is down until Ansible completes, raspberry pis dont have cloudoffice_onlyoffice)
 sudo docker rm -f cloudoffice_nextcloud cloudoffice_database cloudoffice_webproxy cloudoffice_onlyoffice
