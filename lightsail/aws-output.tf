@@ -20,7 +20,8 @@ if [ -f pvars.tfvars ]; then echo "pvars exists, not overwriting"; else mv aws.t
 # Pull updates
 git pull
 
-# If updating containers, remove the old containers - this brings down the service until ansible is re-applied.
+# If updating containers
+# remove the old containers - this brings down the service until ansible is re-applied.
 ssh ubuntu@${aws_lightsail_static_ip.nc-staticip.ip_address}
 sudo docker rm -f cloudblock_application cloudblock_database cloudblock_webproxy cloudblock_onlyoffice
 exit
