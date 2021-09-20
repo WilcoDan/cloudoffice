@@ -75,7 +75,7 @@ source ~/.bashrc
 sudo reboot
 
 # Clone the project and change to playbooks directory
-git clone https://github.com/chadgeary/cloudoffice && cd cloudoffice/playbooks/
+git clone https://github.com/wilcodan/cloudoffice && cd cloudoffice/playbooks/
 
 # Set Variables
 web_port=443
