@@ -20,11 +20,11 @@ source ~/.bashrc
 sudo reboot
 
 # Clone the project and change to playbooks directory
-git clone https://github.com/chadgeary/cloudoffice && cd cloudoffice/playbooks/
+git clone https://github.com/wilcodan/cloudoffice && cd cloudoffice/playbooks/
 
 # Set Variables
 web_port=443
-instance_public_ip=CHANGEME
+instance_public_ip=10.99.99.52
 docker_network=172.18.1.0
 docker_gw=172.18.1.1
 docker_nextcloud=172.18.1.2
@@ -35,10 +35,10 @@ project_directory=/opt
 
 # New as of July 2021 - visit duckdns.org and get a domain + token then set your variables below
 # This provides a signed, valid HTTPS certificate (instead of self-signed)
-enable_duckdns=1
+enable_duckdns=0
 duckdns_domain=changeme.duckdns.org
 duckdns_token=changeme-change-me-change-me
-letsencrypt_email=changeme@changeme.changeme
+letsencrypt_email=wilco@danester.co.za
 
 # Want to set your own admin, database, and onlyoffice passwords instead of something randomly generated?
 sudo mkdir -p /opt/nextcloud_application
@@ -80,7 +80,7 @@ git clone https://github.com/wilcodan/cloudoffice && cd cloudoffice/playbooks/
 # Set Variables
 web_port=443
 oo_port=8443
-instance_public_ip=CHANGEME
+instance_public_ip=10.99.99.52
 docker_network=172.18.1.0
 docker_gw=172.18.1.1
 docker_nextcloud=172.18.1.2
@@ -92,7 +92,7 @@ project_directory=/opt
 
 # New as of July 2021 - visit duckdns.org and get a domain + token then set your variables below
 # This provides a signed, valid HTTPS certificate (instead of self-signed)
-enable_duckdns=1
+enable_duckdns=0
 duckdns_domain=changeme.duckdns.org
 duckdns_token=changeme-change-me-change-me
 letsencrypt_email=changeme@changeme.changeme
