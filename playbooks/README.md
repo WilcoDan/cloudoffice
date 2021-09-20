@@ -129,7 +129,7 @@ cd ~/cloudoffice/playbooks
 # Set customized variables (use the variables you saved previously, raspberry pis dont have oo_port or docker_onlyoffice)
 web_port=443
 oo_port=8443
-instance_public_ip=192.96.177.45
+instance_public_ip=10.99.99.52
 docker_network=172.18.1.0
 docker_gw=172.18.1.1
 docker_nextcloud=172.18.1.2
