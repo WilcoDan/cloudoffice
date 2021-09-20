@@ -93,8 +93,8 @@ project_directory=/opt
 # New as of July 2021 - visit duckdns.org and get a domain + token then set your variables below
 # This provides a signed, valid HTTPS certificate (instead of self-signed)
 enable_duckdns=0
-duckdns_domain=
-duckdns_token=
+duckdns_domain=''
+duckdns_token=''
 letsencrypt_email=wilco@danester.co.za
 
 # Want to set your own admin, database, and onlyoffice passwords instead of something randomly generated?
@@ -139,8 +139,8 @@ docker_onlyoffice=172.18.1.6
 docker_duckdnsupdater=172.18.1.7
 project_directory=/opt
 enable_duckdns=0
-duckdns_domain=
-duckdns_token=
+duckdns_domain=''
+duckdns_token=''
 letsencrypt_email=wilco@danester.co.za
 
 # Remove old containers (service is down until Ansible completes, raspberry pis dont have cloudoffice_onlyoffice)
