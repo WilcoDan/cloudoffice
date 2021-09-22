@@ -133,9 +133,12 @@ ansible-playbook cloudoffice_ubuntu.yml --ask-become-pass --extra-vars="web_port
 cd ~/cloudoffice/playbooks
 
 # Set customized variables (use the variables you saved previously, raspberry pis dont have oo_port or docker_onlyoffice)
+# Note that either instance_public_ip or instance_domain (domain pointing nextcloud) at minimum must be set but also both can be set
+# When not setting a field please just add ''
 web_port=443
 oo_port=8443
-instance_public_ip=10.99.99.52
+instance_public_ip=
+instance_domain=
 docker_network=172.18.1.0
 docker_gw=172.18.1.1
 docker_nextcloud=172.18.1.2
