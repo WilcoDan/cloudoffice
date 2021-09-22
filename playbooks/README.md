@@ -23,6 +23,8 @@ sudo reboot
 git clone https://github.com/wilcodan/cloudoffice && cd cloudoffice/playbooks/
 
 # Set Variables
+# Note that either instance_public_ip or instance_domain (domain pointing nextcloud) at minimum must be set but also both can be set
+# When not setting a field please just add ''
 web_port=443
 instance_public_ip=
 instance_domain=
