@@ -10,7 +10,7 @@
       set_fact:
         duckdns_domain: "{% if duckdns_domain is not defined %}{% else %}{{ duckdns_domain }}{% endif %}"
         
-     - name: if not defined, set instance_domain to instance_public_ip
+    - name: if not defined, set instance_domain to instance_public_ip
       set_fact:
         instance_domain: "{% if instance_domain is not defined %}{% else %}{{ instance_public_ip }}{% endif %}"
 
