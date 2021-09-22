@@ -589,4 +589,4 @@
       debug:
         msg:
           - "CloudOffice completed installation!"
-          - "Nextcloud WebUI: https://{% if instance_public_ip is not defined %}{{ ansible_default_ipv4.address }}{% else %}{{ instance_public_ip }}{% endif %}:{{ web_port }}"
+          - "Nextcloud WebUI: https://{% if instance_domain is not defined %}{{ instance_public_ip }}{% else %}{{ ansible_default_ipv4.address }}{% endif %}:{{ web_port }}"
