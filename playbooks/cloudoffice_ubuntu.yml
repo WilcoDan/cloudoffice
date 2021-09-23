@@ -384,7 +384,7 @@
           NEXTCLOUD_ADMIN_PASSWORD: "{{ admin_password }}"
           NEXTCLOUD_ADMIN_USER: ncadmin
           NEXTCLOUD_TRUSTED_DOMAINS: "{{ instance_public_ip }} {{ docker_webproxy }} {{ docker_nextcloud }} {{ instance_domain }} {{ duckdns_domain }}"
-          TRUSTED_PROXIES: "{{ instance_public_ip }} {{ instance_domain }} {{ docker_webproxy }} {{ duckdns_domain }}"
+          TRUSTED_PROXIES: "{{ instance_public_ip }} {{ man.cloudsmart-inter.net }} {{ instance_domain }} {{ docker_webproxy }} {{ duckdns_domain }}"
 #          OVERWRITEHOST: "{% if duckdns_domain = '' %}{{ instance_domain }}:{{ web_port }}{% else %}{{ instance_domain }}:{{ web_port }}{% endif %}"
           OVERWRITEHOST: "{% if duckdns_domain != '' %}{{ duckdns_domain }}:{{ web_port }}{% else %}{{ instance_domain }}:{{ web_port }}{% endif %}"
           OVERWRITEWEBROOT: "{% if duckdns_domain != '' %}/nc{% else %}{% endif %}"
