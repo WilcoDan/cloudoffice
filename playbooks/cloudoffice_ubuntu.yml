@@ -10,9 +10,9 @@
       set_fact:
         duckdns_domain: "{% if duckdns_domain is not defined %}{% else %}{{ duckdns_domain }}{% endif %}"
         
-#    - name: if not defined, set instance_domain to instance_public_ip
-#      set_fact:
-#        instance_domain: "{% if instance_domain is not defined %}{% else %}{{ instance_public_ip }}{% endif %}"
+    - name: if not defined, set instance_domain to instance_public_ip
+      set_fact:
+        instance_domain: "{% if instance_domain is not defined %}{% else %}{{ instance_public_ip }}{% endif %}"
 
     - name: if not defined, set duckdns_token to blank value
       set_fact:
@@ -385,8 +385,8 @@
           NEXTCLOUD_ADMIN_USER: ncadmin
           NEXTCLOUD_TRUSTED_DOMAINS: "{{ instance_public_ip }} {{ docker_webproxy }} {{ docker_nextcloud }} {{ instance_domain }} {{ duckdns_domain }}"
           TRUSTED_PROXIES: "{{ instance_public_ip }} {{ instance_domain }} {{ docker_webproxy }} {{ duckdns_domain }}"
-          OVERWRITEHOST: "{% if duckdns_domain = '' %}{{ instance_domain }}:{{ web_port }}{% else %}{{ instance_domain }}:{{ web_port }}{% endif %}"
-#          OVERWRITEHOST: "{% if duckdns_domain != '' %}{{ duckdns_domain }}:{{ web_port }}{% else %}{{ instance_domain }}:{{ web_port }}{% endif %}"
+#          OVERWRITEHOST: "{% if duckdns_domain = '' %}{{ instance_domain }}:{{ web_port }}{% else %}{{ instance_domain }}:{{ web_port }}{% endif %}"
+          OVERWRITEHOST: "{% if duckdns_domain != '' %}{{ duckdns_domain }}:{{ web_port }}{% else %}{{ instance_domain }}:{{ web_port }}{% endif %}"
           OVERWRITEWEBROOT: "{% if duckdns_domain != '' %}/nc{% else %}{% endif %}"
           OVERWRITEPROTOCOL: https
           MYSQL_PASSWORD: "{{ db_password }}"
